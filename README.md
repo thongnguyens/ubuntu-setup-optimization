@@ -22,10 +22,10 @@
 - [6. Đăng nhập vân tay (Fingerprint)](#6-đăng-nhập-vân-tay-fingerprint)
 - [7. ClamAV/ClamTK (diệt virus)](#7-clamavclamtk-diệt-virus)
 - [8. Gnome Boxes (ảo hóa)](#8-gnome-boxes-ảo-hóa)
-- [9. Brave Browser](#9-brave-browser)
-- [10. Bộ gõ Tiếng Việt (IBus Bamboo)](#10-bộ-gõ-tiếng-việt-ibus-bamboo)
-- [11. Quản lý VM bằng virsh](#11-quản-lý-vm-bằng-virsh)
-- [12. Flathub](#12-flathub)
+- [9. Bộ gõ Tiếng Việt (IBus Bamboo)](#10-bộ-gõ-tiếng-việt-ibus-bamboo)
+- [10. Quản lý VM bằng virsh](#11-quản-lý-vm-bằng-virsh)
+- [11. Flathub](#12-flathub)
+- [12. Brave Browser](#9-brave-browser)
 - [13. Firefox qua Flathub](#13-firefox-qua-flathub)
 - [14. Firefox bản chính thức (APT Mozilla)](#14-firefox-bản-chính-thức-apt-mozilla)
 - [15. TimeShift (snapshot hệ thống)](#15-timeshift-snapshot-hệ-thống)
@@ -138,18 +138,7 @@ sudo usermod -aG libvirt $USER
 
 ---
 
-## 9. Brave Browser
-```bash
-sudo apt install -y curl
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install -y brave-browser
-```
-
----
-
-## 10. Bộ gõ Tiếng Việt (IBus Bamboo)
+## 9. Bộ gõ Tiếng Việt (IBus Bamboo)
 ```bash
 sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
 sudo apt-get update
@@ -160,7 +149,7 @@ env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['Bamb
 
 ---
 
-## 11. Quản lý VM bằng `virsh`
+## 10. Quản lý VM bằng `virsh`
 ```bash
 virsh -c qemu:///session list --all
 virsh -c qemu:///session edit win10-enterp
@@ -168,11 +157,22 @@ virsh -c qemu:///session edit win10-enterp
 
 ---
 
-## 12. Flathub
+## 11. Flathub
 ```bash
 sudo apt install -y flatpak
 sudo apt install -y gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+---
+
+## 12. Brave Browser
+```bash
+sudo apt install -y curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install -y brave-browser
 ```
 
 ---
@@ -247,10 +247,11 @@ sudo apt install -y gparted
 ---
 
 ## Giấy phép
-MIT (tùy chọn theo nhu cầu của bạn).
+Phát hành theo giấy phép **MIT** — xem [LICENSE](./LICENSE).
 
 ---
 
 ## Miễn trừ trách nhiệm
 - Các lệnh có thể thay đổi hành vi hệ thống. Hãy sao lưu dữ liệu quan trọng trước khi thực hiện.
 - Một số lệnh yêu cầu quyền `sudo` và có thể xung đột với chính sách IT của tổ chức.
+
